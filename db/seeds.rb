@@ -34,3 +34,4 @@ products.each do |p|
 end
 puts "Created #{Platform.count} platforms."
 puts "Created #{Product.count} products."
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?git
