@@ -4,11 +4,17 @@
 
 <div id="products">
   <% @products.each do |product| %>
-    <%= render product %>
+    <%= product.name %>
+    <p>Price: $<%= product.price %></p>
+    <% if product.image.present? %>
+      <div class="card-image">
+        <figure class="image">
+          <%= image_tag product.image %>
+        </figure>
+      </div>
+    <% end %>
     <p>
-      <%= link_to "Show this product", product %>
+      <%= link_to "Show Details", product %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New product", new_product_path %>

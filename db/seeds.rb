@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "csv"
+require "open-uri"
 
 Product.delete_all
 Platform.delete_all
@@ -31,7 +32,15 @@ products.each do |p|
   else
     puts "Invalid platform #{p['platform']} for product #{p['product_name']}."
   end
+
+  download_image = URI.open(p["image-src"])
+  if download_image.present?
+    product.image.attach(io: download_image, filename: "m-#{product.name}.jpg")
+  else
+    puts "Could not download image for #{product.name}."
+  end
+
 end
 puts "Created #{Platform.count} platforms."
 puts "Created #{Product.count} products."
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?git
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
