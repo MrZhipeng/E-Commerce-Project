@@ -70,3 +70,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+  gem "kaminari"
+  gem "geocoder"
+  gem "activeadmin"
+  gem "devise"
+  gem "image_processing"
