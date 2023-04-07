@@ -11,6 +11,10 @@
   <% end %>
 
   <strong><%= product.name %></strong>
+  <p>
+    <strong>Platform:</strong>
+    <%= link_to product.platform.name, product.platform %>
+  </p>
 
   <p>
     <strong>Price:</strong>
