@@ -1,4 +1,8 @@
-<div>
-  <p>Name: Zhipeng Ding</p>
-  <p>Email: zding3@academic.rrc.ca</p>
+<p style="color: green"><%= notice %></p>
+
+<div id="about">
+  <% @contact.each do |contact| %>
+    <p>Name: <%= contact.name %></p>
+    <p>Email: <%= contact.email %></p>
+  <% end %>
 </div>
