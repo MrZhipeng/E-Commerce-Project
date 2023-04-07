@@ -1,8 +1,4 @@
 <div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
 
   <% if product.image.present? %>
     <div class="card-image">
@@ -10,21 +6,27 @@
         <%= image_tag product.image %>
       </figure>
     </div>
+  <% else %>
+      <%= image_tag 'placeholder.jpg' %>
   <% end %>
 
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
+  <strong><%= product.name %></strong>
 
   <p>
     <strong>Price:</strong>
     <%= product.price %>
   </p>
 
+  <% if product.on_sale_price.present? %>
+    <p>
+      <strong>On sale price:</strong>
+      <%= product.on_sale_price %>
+    </p>
+  <% end %>
+
   <p>
-    <strong>On sale price:</strong>
-    <%= product.on_sale_price %>
+    <strong>Description:</strong>
+    <%= product.description %>
   </p>
 
 </div>

@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   # GET /products
   def index
-    @products = Product.all
+    @products = Product.all.page(params[:page])
   end
 
   # GET /products/1
