@@ -28,7 +28,7 @@ products.each do |p|
     )
     unless product&.valid?
       puts "Invalid product #{p['product_name']}: #{product.errors.full_messages.join(', ')}"
-    end
+    end n
   else
     puts "Invalid platform #{p['platform']} for product #{p['product_name']}."
   end

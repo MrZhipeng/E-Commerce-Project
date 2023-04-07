@@ -1,16 +1,25 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>ECommerce</title>
+    <title>Game Center</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
   </head>
 
   <body>
-    <%= yield %>
+    <section class="container">
+      <div style= "display: flex; flex: 1; justify-content: center; margin: 0;">
+        <h1 class="panel-heading title is-1 has-text-link">Game Center</h1>
+      </div>
+      <%= render partial:'shared/navbar'%>
+
+      <%= yield %>
+    </section>
   </body>
 </html>

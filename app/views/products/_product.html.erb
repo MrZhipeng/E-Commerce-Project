@@ -4,7 +4,13 @@
     <%= product.name %>
   </p>
 
-
+  <% if product.image.present? %>
+    <div class="card-image">
+      <figure class="image">
+        <%= image_tag product.image %>
+      </figure>
+    </div>
+  <% end %>
 
   <p>
     <strong>Description:</strong>
