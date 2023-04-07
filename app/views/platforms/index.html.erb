@@ -4,11 +4,8 @@
 
 <div id="platforms">
   <% @platforms.each do |platform| %>
-    <%= render platform %>
     <p>
-      <%= link_to "Show this platform", platform %>
+      <%= link_to platform.name , platform %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New platform", new_platform_path %>
