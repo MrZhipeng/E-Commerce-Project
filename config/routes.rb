@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :platforms
-  resources :products
+  resources :products do
+    collection do
+      get :search
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -13,4 +17,5 @@ Rails.application.routes.draw do
   get "contact" => "contact#index", as: "contact"
   get "about" => "about#index", as: "about"
   root to: "home#index"
+
 end

@@ -1,11 +1,6 @@
-
-<%= form_tag(products_path, method: :get, id: "filter-form") do %>
-  <%= check_box_tag :on_sale, true, params[:on_sale] == "true", onchange: "this.form.submit();" %>
-  <%= label_tag :on_sale, "Show on-sale products only" %>
-  <br>
-  <%= check_box_tag :added_this_week, true, params[:added_this_week] == "true", onchange: "this.form.submit();" %>
-  <%= label_tag :added_this_week, "Show products added this week only" %>
-<% end %>
+<p class="mb-5">
+  Games found when searching for: <%= params[:keywords] %>
+</p>
 
 <div id="product-grid">
   <% @products.each do |product| %>
@@ -29,6 +24,4 @@
     </aside>
   <% end %>
 </div>
-<div>
-  <%= paginate @products %>
-</div>
+<%=link_to "Go Back", :back%>
