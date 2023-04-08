@@ -26,7 +26,7 @@
           <%= select_tag(:id, options_from_collection_for_select(Platform.all, :id, :name, selected: params[:id]), include_blank: "All Platforms") %>
         </div>
         <div class="control">
-          <%= submit_tag("search", class: "button is-primary") %>
+          <%= submit_tag("search", class: "button is-primary is-rounded") %>
         </div>
       <% end %>
       <%= yield %>

@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
  #product-grid {
   display: flex;
   flex-wrap: wrap;
