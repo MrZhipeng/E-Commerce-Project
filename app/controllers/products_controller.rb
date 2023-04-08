@@ -22,10 +22,10 @@ class ProductsController < ApplicationController
 
   def search
     wildcard_search_term = "%#{params[:keywords]}%"
-    @products = Product.where("name LIKE ?", wildcard_search_term)
+    @products = Product.where("name LIKE ?", wildcard_search_term).page(params[:page])
 
     if params[:id].present?
-      @products = @products.where("platform_id = ?", params[:id])
+      @products = @products.where("platform_id = ?", params[:id]).page(params[:page])
     end
   end
 
