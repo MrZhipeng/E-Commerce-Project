@@ -17,7 +17,7 @@ class CartController < ApplicationController
     product = Product.find(id)
     # flash[:notice] = "#{product.name} removed from cart."
     logger.debug ("Removing #{params[:id]} from cart.")
-    redirect_to root_path
+    redirect_to request.referrer || root_path
   end
 
   def index
