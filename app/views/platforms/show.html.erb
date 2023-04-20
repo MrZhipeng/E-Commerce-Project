@@ -1,3 +1,9 @@
+<% content_for :breadcrumbs do %>
+  <li><%= link_to "Platforms", platforms_path %></li>
+  <li class="is-active"><%= @platform.name %></li>
+<% end %>
+
+
 <%= form_tag(products_path, method: :get, id: "filter-form") do %>
   <%= check_box_tag :on_sale, true, params[:on_sale] == "true", onchange: "this.form.submit();" %>
   <%= label_tag :on_sale, "Show on-sale products only" %>

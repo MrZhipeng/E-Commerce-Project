@@ -1,5 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+    <li class= "breadcrumb-item"><%= link_to "Platforms", platforms_path %>
+    <li class="breadcrumb-item"><%= link_to @product.platform.name, platform_path(@product.platform) %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @product.name %></li>
+  </ol>
+</nav>
+
+
 <%= render @product %>
 
 <div>
