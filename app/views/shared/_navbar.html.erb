@@ -1,5 +1,6 @@
-<div class="navbar-container has-background-warning-light" style="display: flex; justify-content: center;" >
+<div class="navbar-container has-background-warning-light" style="display: flex; justify-content: center;">
   <nav class="navbar has-background-warning-light" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu is-active">
       <div class="navbar-start">
         <div class="navbar-item">
           <%= link_to "Home", root_path %>
@@ -17,7 +18,13 @@
           <%= link_to "Contact", contact_path %>
         </div>
       </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="nav-link" href="<%= cart_path %>">
+            Cart (<%= cart.count %>)
+          </a>
+        </div>
+      </div>
+    </div>
   </nav>
 </div>
-
-

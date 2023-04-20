@@ -19,4 +19,8 @@ class CartController < ApplicationController
     logger.debug ("Removing #{params[:id]} from cart.")
     redirect_to root_path
   end
+
+  def index
+    @cart_items = cart
+  end
 end

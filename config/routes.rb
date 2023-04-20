@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :cart, only: [:create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -17,6 +16,9 @@ Rails.application.routes.draw do
   # get "about#index"
   get "contact" => "contact#index", as: "contact"
   get "about" => "about#index", as: "about"
+  get 'cart' => 'cart#index', as: 'cart'
+  post 'cart' => 'cart#create'
+  delete 'cart/:id' => 'cart#destroy', as: 'cart_delete'
   root to: "home#index"
 
 end
