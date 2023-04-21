@@ -78,3 +78,5 @@ end
   gem 'devise'
 
   gem 'stripe'
+
+  gem 'rack-cors'

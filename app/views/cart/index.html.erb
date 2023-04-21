@@ -25,4 +25,12 @@
 <% else %>
   <p>Total: <%= number_to_currency(@cart_items.sum(&:price)) %></p>
 
+  <%= form_with url: checkout_create_path, method: :post, data: { controller: "checkout" }, local: false do %>
+    <% @cart_items.each do |item| %>
+      <%= hidden_field_tag "product_ids[]", item.id %>
+    <% end %>
+    <%= submit_tag "Checkout", class: "button is-primary" %>
+  <% end %>
+
+
 <% end %>

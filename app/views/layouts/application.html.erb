@@ -10,6 +10,10 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <script src="https://js.stripe.con/v3"></script>
+    <meta name="stripe-public-key" content="<%= ENV['PUBLISHABLE_KEY'] %>">
+    <meta name="csrf-token" content="<%= form_authenticity_token %>">
   </head>
 
   <body>
@@ -19,7 +23,7 @@
       </div>
       <%= render partial:'shared/navbar'%>
 
-      <%= debug session[:shopping_cart] %>
+      <%# <%= debug session[:shopping_cart] %>
 
           <div class="container">
       <% if content_for?(:breadcrumbs) %>
