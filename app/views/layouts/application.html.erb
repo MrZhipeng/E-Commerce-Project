@@ -15,7 +15,7 @@
   <body>
     <section class="container">
       <div style= "display: flex; flex: 1; justify-content: center; margin: 0;">
-        <h1 class="panel-heading title is-1 has-text-link">Game Center</h1>
+        <h1 class="panel-heading title is-1 has-text-link"><%= link_to "Game Center", root_path %></h1>
       </div>
       <%= render partial:'shared/navbar'%>
       <%= form_with(url: search_products_path, method: :get, local: true) do %>
