@@ -9,7 +9,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <script src="https://js.stripe.con/v3"></script>
+    <meta name="stripe-public-key" content="<%= ENV['PUBLISHABLE_KEY'] %>">
+    <meta name="csrf-token" content="<%= form_authenticity_token %>">
   </head>
 
   <body>
@@ -18,6 +22,20 @@
         <h1 class="panel-heading title is-1 has-text-link"><%= link_to "Game Center", root_path %></h1>
       </div>
       <%= render partial:'shared/navbar'%>
+
+      <%# <%= debug session[:shopping_cart] %>
+
+          <div class="container">
+      <% if content_for?(:breadcrumbs) %>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+          <ul>
+            <li><%= link_to "Home", root_path %></li>
+            <%= yield(:breadcrumbs) %>
+          </ul>
+        </nav>
+      <% end %>
+    </div>
+
       <%= form_with(url: search_products_path, method: :get, local: true) do %>
         <div class="field is-grouped mb-5" style="display: flex;">
           <%= text_field_tag(:keywords, nil, class: "input", placeholder: "Search for games...", style: "flex: 8;") %>
@@ -27,5 +45,8 @@
       <% end %>
       <%= yield %>
     </section>
+
+
+
   </body>
 </html>

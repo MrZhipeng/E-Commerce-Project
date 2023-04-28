@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   # get "about#index"
   get "contact" => "contact#index", as: "contact"
   get "about" => "about#index", as: "about"
+  get 'cart' => 'cart#index', as: 'cart'
+  post 'cart' => 'cart#create'
+  delete 'cart/:id' => 'cart#destroy', as: 'cart_delete'
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'checkout_create'
+    get 'success', to: 'checkout#success', as: 'checkout_success'
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+  end
   root to: "home#index"
 
 end

@@ -78,5 +78,5 @@ end
   gem 'devise'
 
   gem 'stripe'
-  gem 'webpacker', '~>3.0'
-  gem 'psych', '< 4'
+
+  gem 'rack-cors'

@@ -17,6 +17,19 @@
           <p>Price: <%= product.price %></p>
         <% end %>
       </div>
+
+      <% if cart.include?(product) %>
+        <%= button_to cart_delete_path(product), method: :delete do %>
+        Remove from Cart
+        <% end %>
+
+      <% else %>
+        <%= form_with url: cart_path, method: :post do %>
+          <%= hidden_field_tag :id, product.id %>
+          <%= button_tag "Add to Cart" %>
+        <% end %>
+      <% end %>
+
     </aside>
   <% end %>
 </div>
