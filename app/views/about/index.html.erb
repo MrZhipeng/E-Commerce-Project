@@ -2,7 +2,7 @@
 
 <div id="about">
   <% @about.each do |about| %>
-    <%= about.title %>
-    <p><%= about.description %></p>
+    <h1 class="title is-3"><%= about.title %></h1>
+    <p class="content is-normal"><%= about.description %></p>
   <% end %>
 </div>
