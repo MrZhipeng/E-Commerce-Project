@@ -2,7 +2,7 @@
 
 <div id="about">
   <% @contact.each do |contact| %>
-    <p>Name: <%= contact.name %></p>
-    <p>Email: <%= contact.email %></p>
+    <p class="title is-3">Name: <%= contact.name %></p>
+    <p class="content is-normal">Email: <%= contact.email %></p>
   <% end %>
 </div>
